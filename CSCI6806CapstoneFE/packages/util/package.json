@@ -1,0 +1,11 @@
+{
+  "name": "@pkg/util",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@vueuse/core": "^10.7.0"
+  }
+}

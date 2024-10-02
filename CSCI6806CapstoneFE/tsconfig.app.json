@@ -1,0 +1,31 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", 
+    "src/**/*.vue ", 
+    "packages/*/src/**.ts",
+    "packages/*/src/**.d.ts",
+    "packages/*/src/**.vue",
+    "packages/*/components.d.ts",
+    "packages/*/types/**/*.d.ts",
+    "packages/*/types/**/*.ts",
+
+    "vite-env.d.ts"],
+  "exclude": ["src/**/__tests__/*", "dist"],
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "typeRoots": ["./node_modules/@types/", "./types"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "#/*": ["./types/*"]
+    },
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  }
+  
+}
