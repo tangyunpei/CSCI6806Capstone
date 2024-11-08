@@ -7,6 +7,8 @@ import type {
 } from 'axios';
 import type { AxiosTransform } from './axiosTransform';
 
+export type Numeric = string | number;
+
 export interface CreateAxiosOptions extends AxiosRequestConfig {
   transform?: AxiosTransform;
   requestOptions?: RequestOptions;

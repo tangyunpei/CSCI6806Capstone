@@ -1,13 +1,35 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import { ElInput, ElButton } from 'element-plus';
 
-const originalText = ref('');
+import { getSummarize, type GetSummerizeParams } from '@/services/getSummarize';
+
+// const originalText: Ref<GetSummerizeParams> = ref({} as GetSummerizeParams);
+const loading = ref(false);
+const originalText= ref('');
 const summary = ref('');
+const getSummary = async () => {
+  try {
+    loading.value = true;
+    const res = await getSummarize({
+      input_string: originalText.value,
+    });
+    summary.value = res.summary;
+    }
+   catch (e) {
+    console.error(e);
+  } finally {
+    loading.value = false;
+  }
+};
 </script>
 
 <template>
   <div class="w-full h-full">
+  <!-- <section class="back absolute top-0 z-0">
+    
+  </section> -->
+  <div class="w-full h-full z-10 ">
   <section class="m-10 flex flex-col items-center justify-center">
     <div class="m-4 w-full flex justify-center">
       <el-input
@@ -19,7 +41,7 @@ const summary = ref('');
       />
     </div>
     <div class="m-4 w-full flex justify-center">
-      <el-button type="primary" v-on:click="console.log(originalText)">
+      <el-button type="primary" v-on:click="getSummary">
         Summarize
         <el-icon class="el-icon--right">
           <Upload />
@@ -37,5 +59,6 @@ const summary = ref('');
       />
     </div>
   </section>
+</div>
 </div>
 </template>

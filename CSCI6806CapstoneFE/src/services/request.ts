@@ -1,20 +1,26 @@
 import axios from 'axios';
 import { storage } from '@pkg/util/storage';
-import { isNumeric } from '../utils/basic';
 import { showFailToast } from '@/utils/helpers';
 import { ACCESS_TOKEN } from '@/store/mutationTypes';
 import { useAuthStoreWidthOut, AuthRouter } from '@/store/modules/auth';
 import { useUserStoreWidthOut } from '@/store/modules/user';
 import { getAppEnvConfig } from '@/utils';
-import type { CreateAxiosOptions, RequestInstance } from './types';
+import type { CreateAxiosOptions, RequestInstance, Numeric } from './types';
+
+
+
+const isNumeric = (val: Numeric): val is string => {
+  return typeof val === 'string' && !isNaN(Number(val));
+};
 
 const authStore = useAuthStoreWidthOut();
-const { VITE_API_URL } = getAppEnvConfig();
+//const { VITE_API_URL } = getAppEnvConfig();
+const VITE_API_URL = 'http://localhost:5001/';
 const CURRENT_SESSION = crypto.randomUUID();
 function createAxios(config?: Partial<CreateAxiosOptions>) {
   const instance: RequestInstance = axios.create({
     baseURL: VITE_API_URL,
-    timeout: 15000,
+    timeout: 30000,
     withCredentials: true,
     validateStatus: status => status >= 200 && status <= 599,
     ...config,
@@ -68,6 +74,7 @@ function handleSuccess(res: any) {
 }
 
 function handleFailure(error: any) {
+  showFailToast(error.message);
   showFailToast('Network Error');
   return Promise.reject(error);
 }

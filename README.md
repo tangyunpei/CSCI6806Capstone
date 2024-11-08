@@ -23,3 +23,12 @@ Technology Stack
 To handle large datasets and enhance processing efficiency, the project utilized Apache Spark for distributed data processing. The data preprocessing pipeline was enhanced with advanced techniques, including spelling correction, named entity recognition, and contextual lemmatization, ensuring high-quality data for model training.
 
 This comprehensive approach provided businesses with a powerful framework to extract and visualize sentiment dynamics from food reviews, enhancing their ability to understand customer preferences and improve strategic decision-making.
+
+
+# SafeTensor file is splited please recombine
+# Combine the split files into one
+
+# SHA256
+46781b3b2d3ec49d93343b0c0afa1eb02cda34416fc8e2a60ca60dfc1b4ed8a3  ./model/model.safetensors
+
+cat model_safetensors_part_* > model_safetensors_combined.safetensors

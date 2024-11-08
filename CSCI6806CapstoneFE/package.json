@@ -14,13 +14,15 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@pkg/util": "workspace:*",
     "@element-plus/icons-vue": "^2.3.1",
+    "@pkg/util": "workspace:*",
+    "animejs": "^3.2.2",
     "axios": "^1.7.7",
     "axios-retry": "^4.5.0",
     "date-fns": "^4.1.0",
     "element-plus": "^2.8.4",
     "fs-extra": "^11.2.0",
+    "letterizejs": "^2.0.1",
     "pinia": "2.1.7",
     "pinia-plugin-persist": "^1.0.0",
     "vue": "3.4.29",
