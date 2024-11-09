@@ -32,3 +32,11 @@ This comprehensive approach provided businesses with a powerful framework to ext
 46781b3b2d3ec49d93343b0c0afa1eb02cda34416fc8e2a60ca60dfc1b4ed8a3  ./model/model.safetensors
 
 cat model_safetensors_part_* > model_safetensors_combined.safetensors
+
+# Run Project
+python3 app.py
+
+# Or Build your own project in 
+CSCI6806CapstoneFE
+# Use Command
+pnpm run build
