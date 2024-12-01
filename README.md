@@ -30,7 +30,9 @@ This comprehensive approach provided businesses with a powerful framework to ext
 
 # SHA256
 46781b3b2d3ec49d93343b0c0afa1eb02cda34416fc8e2a60ca60dfc1b4ed8a3  ./model/model.safetensors
+
 44459a495af3558ba973fa000e8fe9dc686bbcb2b41d85d21f2c1158388d09e7  ./dataset/tokenizednews.zip
+
 cat model_safetensors_part_* > model_safetensors_combined.safetensors
 
 # Run Project
